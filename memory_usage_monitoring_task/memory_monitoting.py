@@ -3,7 +3,7 @@ import time
 import psutil
 import requests
 
-URL_API = "https://testsevice.com/api/alarm"
+URL_API = "https://testservice.com/api/alarm"
 
 MEMORY_THRESHOLD_PERCENT = 85
 MESSAGES_COOLDOWN_SECONDS = 10
