@@ -1,24 +1,27 @@
 version: '3'
 services:
   app:
-    build: ..
+    image: ezzysoft/hh-task:latest
+    container_name: task_app
+    build: .
     ports:
       - "8080:8080"
     depends_on:
       - dataBase
     environment:
-      MONGO_URI: mongodb://dataBase:27017/task
+      - MONGO_URI=${MONGO_URI}
     networks:
       - app_network
 
   dataBase:
-    image: mongo
+    image: mongo:latest
+    container_name: task_DB
     ports:
       - "27017:27017"
     networks:
       - app_network
     environment:
-      - MONGO_INITDB_DATABASE=${MONGO_URI}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
 
 networks:
   app_network:
